@@ -87,6 +87,10 @@ import { LoginComponent } from './login/login.component';
         component: OrderSuccessComponent
       },
       {
+        path: 'my/orders',
+        component: MyOrdersComponent
+      },
+      {
         path: 'login',
         component: LoginComponent
       },
@@ -97,7 +101,7 @@ import { LoginComponent } from './login/login.component';
       {
         path: 'admin/orders',
         component: AdminOrdersComponent 
-      },
+      }
     ])
   ],
   providers: [
