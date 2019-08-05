@@ -36,6 +36,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 
 
@@ -80,33 +81,39 @@ import { AuthService } from './auth.service';
         component: ShoppingCartComponent 
       },
       {
-        path: 'check-out',
-        component: CheckOutComponent 
+        path: 'login',
+        component: LoginComponent,
       },
       {
         path: 'orderSuccess',
-        component: OrderSuccessComponent
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'check-out',
+        component: CheckOutComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'my/orders',
-        component: MyOrdersComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
+        component: MyOrdersComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/products',
-        component: AdminProductsComponent
+        component: AdminProductsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/orders',
-        component: AdminOrdersComponent 
+        component: AdminOrdersComponent,
+        canActivate: [AuthGuard]
       }
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: HttpConfigInterceptor,
