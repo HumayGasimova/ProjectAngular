@@ -8,21 +8,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { 
+  HttpClientModule, 
+  // HTTP_INTERCEPTORS 
+} from '@angular/common/http';
+
 import { DataService } from './services/data.service';
 
 import { RouterModule } from '@angular/router';
 
 import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { environment } from 'src/environments/environment';
+import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BsNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -33,16 +42,17 @@ import { environment } from 'src/environments/environment';
     HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireAuthModule
     // RouterModule.forRoot([
     // ])
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpConfigInterceptor,
-      multi:true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpConfigInterceptor,
+    //   multi:true
+    // }
   ],
   bootstrap: [AppComponent],
 })
