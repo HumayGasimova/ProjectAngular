@@ -35,9 +35,11 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service';
-import { UserService } from './user.service';
+
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 
 
@@ -103,19 +105,20 @@ import { UserService } from './user.service';
       {
         path: 'admin/products',
         component: AdminProductsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'admin/orders',
         component: AdminOrdersComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, AdminAuthGuard]
       }
     ])
   ],
   providers: [
     AuthService,
     AuthGuard,
-    UserService
+    UserService,
+    AdminAuthGuard
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: HttpConfigInterceptor,
