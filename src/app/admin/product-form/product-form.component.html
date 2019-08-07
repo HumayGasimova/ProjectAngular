@@ -14,7 +14,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
                     </div>
-                    <input  #price="ngModel" ngModel name="number" id="price" type="number" class="form-control" required [min]="0"/>
+                    <input #price="ngModel" ngModel name="price" id="price" type="number" class="form-control" required [min]="0"/>
                 </div>
                 <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
                     <div *ngIf="price.errors.required">Price is required</div>
