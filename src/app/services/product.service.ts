@@ -17,4 +17,8 @@ export class ProductService {
   getAll() {
     return this.db.list('/product').valueChanges()
   }
+
+  getProduct(productId) {
+    return this.db.object('/product/'+ productId).valueChanges();
+  }
 }
