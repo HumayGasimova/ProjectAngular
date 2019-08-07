@@ -23,6 +23,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { environment } from 'src/environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -74,6 +75,7 @@ import { ProductService } from './services/product.service';
     BrowserAnimationsModule,
     AngularFireAuthModule,
     NgbModule,
+    CustomFormsModule,
     RouterModule.forRoot([
       {
         path: '',
