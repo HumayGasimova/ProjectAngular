@@ -12,7 +12,7 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./admin-products.component.scss']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-  products: any[];
+  products: Product[];
   filteredProducts: any[];
   productRef;
   productKey$: Observable<any[]>;
