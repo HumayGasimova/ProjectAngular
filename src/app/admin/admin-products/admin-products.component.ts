@@ -22,14 +22,11 @@ export class AdminProductsComponent implements OnInit {
     this.productRef = db.list('/product');
     this.productKey$ = this.productRef.snapshotChanges()
     .map(changes => {
-      console.log(changes)
         return changes.map(c =>{
-          console.log("ggg", { key: c.payload.key, ...c.payload.val()})
          return ({ key: c.payload.key, ...c.payload.val()})
         }
         );
    });
-   console.log("hey", this.productKey$)
    }
 
   ngOnInit() {
