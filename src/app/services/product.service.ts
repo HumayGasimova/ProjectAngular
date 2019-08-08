@@ -11,22 +11,22 @@ export class ProductService {
   ) { }
 
   create(product){
-    return this.db.list('/product').push(product);
+    return this.db.list('/products').push(product);
   }
 
   getAll() {
-    return this.db.list('/product').valueChanges();
+    return this.db.list('/products').valueChanges();
   }
 
   getProduct(productId) {
-    return this.db.object('/product/'+ productId).valueChanges();
+    return this.db.object('/products/'+ productId).valueChanges();
   }
 
   update(productId, product){
-    return this.db.object('/product/' + productId).update(product);
+    return this.db.object('/products/' + productId).update(product);
   }
 
   delete(productId){
-    return this.db.object('/product/' + productId).remove();
+    return this.db.object('/products/' + productId).remove();
   }
 }

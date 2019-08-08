@@ -29,7 +29,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     //   console.log( this.filteredProducts)
     //  });
 
-    this.productRef = db.list('/product');
+    this.productRef = db.list('/products');
     
     this.subscription = this.productRef.snapshotChanges()
     .map(changes => {
