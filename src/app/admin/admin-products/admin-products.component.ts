@@ -45,8 +45,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
    .subscribe(prod => {
     this.products = prod;
     this.initializeTable(prod);
-    
-    console.log(this.filteredProducts)
    })
 
   //   this.productKey$ = this.productRef.snapshotChanges()

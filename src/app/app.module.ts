@@ -81,7 +81,7 @@ import { ProductService } from './services/product.service';
     RouterModule.forRoot([
       {
         path: '',
-        component: HomeComponent 
+        component: ProductsComponent
       },
       {
         path: 'products',
