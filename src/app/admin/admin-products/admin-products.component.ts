@@ -26,14 +26,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private db: AngularFireDatabase
   ) {
-    //  this.subscription = this.productService.getAll().subscribe(products => {
-       
-    //   this.filteredProducts = products
-    //   this.products = products
-    //   console.log( this.filteredProducts)
-    //  });
-
-    this.productRef = db.list('/products');
+  
+    this.productRef = productService.getAll();
     
     this.subscription = this.productRef.snapshotChanges()
     .map(changes => {
@@ -47,14 +41,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.initializeTable(prod);
    })
 
-  //   this.productKey$ = this.productRef.snapshotChanges()
-  //   .map(changes => {
-  //       return changes.map(c =>{
-  //        return ({ key: c.payload.key, ...c.payload.val()})
-  //       }
-  //       );
-  //  });
-   }
+  }
 
   ngOnInit() {
    

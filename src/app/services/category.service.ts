@@ -12,6 +12,6 @@ export class CategoryService {
 
   getCategories() {
     // console.log(this.db.list('/categories', ref => ref.orderByChild('name')).snapshotChanges())
-    return this.db.list('/categories', ref => ref.orderByChild('name')).valueChanges();
+    return this.db.list('/categories', ref => ref.orderByChild('name'));
   }
 }
