@@ -20,12 +20,18 @@ export class ProductsComponent {
     productService: ProductService,
     route: ActivatedRoute
   ) { 
-      productService
+    productService
       .getAll()
-      .valueChanges()
+      .snapshotChanges()
+      .map(changes => {
+        return changes.map(c =>{
+         return ({ key: c.payload.key, ...c.payload.val()})
+        }
+        );
+      })
       .switchMap(products => {
         this.products = products;
-        console.log(this.products)
+        // console.log(this.products.key)
         return route.queryParamMap;
       })
       .subscribe(params => {
@@ -36,6 +42,25 @@ export class ProductsComponent {
           this.products;
           console.log(this.filteredProducts)
       })
+
+
+
+      // productService
+      // .getAll()
+      // .valueChanges()
+      // .switchMap(products => {
+      //   this.products = products;
+      //   console.log(this.products)
+      //   return route.queryParamMap;
+      // })
+      // .subscribe(params => {
+      //   this.category = params.get('category');
+        
+      //   this.filteredProducts = (this.category) ? 
+      //     this.products.filter(p => p.category === this.category) : 
+      //     this.products;
+      //     console.log(this.filteredProducts)
+      // })
 
       
 

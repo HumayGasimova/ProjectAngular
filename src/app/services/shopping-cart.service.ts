@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Product } from '../models/product';
+import 'rxjs/add/operator/take';
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +25,29 @@ export class ShoppingCartService {
   private async getOrCreateCart() {
     let cartId = localStorage.getItem('cartId');
 
-    if(!cartId){
-      let result = await this.create();
-      localStorage.setItem('cartId', result.key);
-      return this.getCart(result.key);
+    if(cartId) return cartId;
+
+    let result = await this.create();
+    localStorage.setItem('cartId', result.key);
+    return result.key;
 
       // this.create().then(res => {
       //   localStorage.setItem('cartId', res.key);
       //   return this.getCart(res.key);
       // })
-    }else{
-      return this.getCart(cartId);
-    }    
+    
+  }
+
+  async addToCart(product: Product){
+    let cartId = await this.getOrCreateCart();
+    let item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
+
+    item$.snapshotChanges().take(1).subscribe((item) => {
+      if(item.payload.exists()){
+        // console.log(item.payload.val().quantity)
+        item$.update({quantity: item.payload.val().quantity + 1});
+      } 
+      else item$.set({product: product, quantity: 1});
+    })
   }
 }

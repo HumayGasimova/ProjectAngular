@@ -17,6 +17,7 @@ export class ProductCardComponent{
   ) { }
 
   addToCart(product: Product) {
-    // this.cartService.addToCart(product);
+    this.cartService.addToCart(product);
+    // console.log(product.key)
   }
 }
