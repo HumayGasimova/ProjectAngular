@@ -11,7 +11,8 @@ import { Product } from '../models/product';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  products: Product[] = [];
+  // products: Product[] = [];
+  products;
   filteredProducts: Product[] = [];
   category: string;
 
@@ -24,13 +25,16 @@ export class ProductsComponent {
       .valueChanges()
       .switchMap(products => {
         this.products = products;
+        console.log(this.products)
         return route.queryParamMap;
       })
       .subscribe(params => {
         this.category = params.get('category');
+        
         this.filteredProducts = (this.category) ? 
           this.products.filter(p => p.category === this.category) : 
           this.products;
+          console.log(this.filteredProducts)
       })
 
       
