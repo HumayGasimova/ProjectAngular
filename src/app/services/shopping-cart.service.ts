@@ -17,12 +17,16 @@ export class ShoppingCartService {
       dataCreated: new Date().getTime()
     })
   }
+  private getItem(cartId: string, productId: string){
+    return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
+  }
 
-  private getCart(cartId: string) {
+  async getCart() {
+    let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId).valueChanges()
   }
 
-  private async getOrCreateCart() {
+  private async getOrCreateCartId(): Promise<string> {
     let cartId = localStorage.getItem('cartId');
 
     if(cartId) return cartId;
@@ -39,8 +43,8 @@ export class ShoppingCartService {
   }
 
   async addToCart(product: Product){
-    let cartId = await this.getOrCreateCart();
-    let item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.key);
 
     item$.snapshotChanges().take(1).subscribe((item) => {
       if(item.payload.exists()){
