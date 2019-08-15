@@ -9,7 +9,7 @@
         *ngIf="showActions" 
     >
         <button 
-            *ngIf="getQuantity === 0; else updateQuantity"
+            *ngIf="getQuantity() === 0; else updateQuantity"
             (click)="addToCart(product)"
             class="btn btn-secondary btn-block"
         >
