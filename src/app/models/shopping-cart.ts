@@ -6,6 +6,10 @@ export class ShoppingCart {
    constructor(public items: ShoppingCartItem[]) {
    }
 
+   get productIds() {
+    return Object.keys(this.items);
+   }
+
    get totalItemsCount() {
     let count = 0;
     let a={};
@@ -14,8 +18,6 @@ export class ShoppingCart {
       count += this.items[productId].quantity;
   
     }
-    console.log("Prod", count)
       return count;
-    
    }
 }
