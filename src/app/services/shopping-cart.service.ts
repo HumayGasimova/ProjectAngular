@@ -60,20 +60,30 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getItem(cartId, product.key);
 
-    item$.snapshotChanges().take(1).subscribe((item) => {
-      if(item.payload.exists()){
-        // console.log(item.payload.val().quantity)
-        item$.update({
-          quantity: item.payload.val().quantity + change
+    item$
+    .snapshotChanges()
+    .take(1)
+    .subscribe((item) => {
+
+        if(item.payload.exists()){
+          let quantity = (item.payload.val().quantity || 0) + change;
+          if(quantity === 0){
+            item$.remove();
+          } else{
+            // console.log(item.payload.val().quantity)
+            item$.update({
+              quantity: quantity
+            });
+          }
+        } 
+        else item$.set({
+          // product: product, 
+          title: product.title,
+          imageUrl: product.imageUrl,
+          price: product.price,
+          quantity: change
         });
-      } 
-      else item$.set({
-        // product: product, 
-        title: product.title,
-        imageUrl: product.imageUrl,
-        price: product.price,
-        quantity: change
-      });
+    
     })
   }
 
