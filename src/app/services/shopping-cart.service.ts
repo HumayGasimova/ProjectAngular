@@ -27,7 +27,7 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId).valueChanges()
     .map(x => {
-      // console.log(x.items)
+      console.log(x)
       return new ShoppingCart(x.items)
     })
   }
@@ -49,23 +49,31 @@ export class ShoppingCartService {
   }
 
   async addToCart(product: Product) {
-    this.updateItemQuantity(product, 1);
+    this.updateItem(product, 1);
   }
 
   async removeFromCart(product: Product) {
-    this.updateItemQuantity(product, -1);
+    this.updateItem(product, -1);
   }
 
-  private async updateItemQuantity(product: Product, change: number) {
+  private async updateItem(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getItem(cartId, product.key);
 
     item$.snapshotChanges().take(1).subscribe((item) => {
       if(item.payload.exists()){
         // console.log(item.payload.val().quantity)
-        item$.update({quantity: item.payload.val().quantity + change});
+        item$.update({
+          quantity: item.payload.val().quantity + change
+        });
       } 
-      else item$.set({product: product, quantity: change});
+      else item$.set({
+        // product: product, 
+        title: product.title,
+        imageUrl: product.imageUrl,
+        price: product.price,
+        quantity: change
+      });
     })
   }
 }
