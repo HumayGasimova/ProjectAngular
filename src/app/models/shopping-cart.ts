@@ -18,7 +18,7 @@ export class ShoppingCart {
         ...item,
         key: productId
       }));
-      
+
       // let x = new ShoppingCartItem();
       // Object.assign(x, item); //copy all the properties from source (item) to target (x)
       // x.key = productId;
@@ -55,4 +55,5 @@ export class ShoppingCart {
     let item = this.itemsMap[product.key];
     return item ? item.quantity : 0;
   }
+
 }
