@@ -64,7 +64,6 @@ export class ShoppingCartService {
     .snapshotChanges()
     .take(1)
     .subscribe((item) => {
-
         if(item.payload.exists()){
           let quantity = (item.payload.val().quantity || 0) + change;
           if(quantity === 0){
