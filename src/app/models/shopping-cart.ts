@@ -9,10 +9,20 @@ export class ShoppingCart {
     this.itemsMap = itemsMap || {};
     for(let productId in itemsMap){
       let item = itemsMap[productId];
-      let x = new ShoppingCartItem();
-      Object.assign(x, item); //copy all the properties from source (item) to target (x)
-      x.key = productId;
-      this.items.push(x);
+
+   
+      this.items.push( new ShoppingCartItem({
+        // title: item.title,
+        // imageUrl: item.imageUrl,
+        // price: item.productId,
+        ...item,
+        key: productId
+      }));
+      
+      // let x = new ShoppingCartItem();
+      // Object.assign(x, item); //copy all the properties from source (item) to target (x)
+      // x.key = productId;
+      // this.items.push(x);
     }
     console.log("Hey",this.items)
   }
