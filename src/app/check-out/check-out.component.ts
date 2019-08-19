@@ -4,6 +4,7 @@ import { ShoppingCart } from '../models/shopping-cart';
 import { Subscription } from 'rxjs';
 import { OrderService } from '../services/order.service';
 import { AuthService } from '../services/auth.service';
+import { Order } from '../models/order';
 
 @Component({
   selector: 'check-out',
@@ -37,22 +38,8 @@ export class CheckOutComponent implements OnInit, OnDestroy{
 
 
   placeOrder(){
-    let order = {
-      userId: this.userId,
-      datePlaced: new Date().getTime(),
-      shipping: this. shipping,
-      items: this.cart.items.map(i => {
-        return {
-          product: {
-            title: i.title,
-            imageUrl: i.imageUrl,
-            price: i.price
-          },
-          quantity: i.quantity,
-          totalPrice: i.totalPrice
-        }
-      })
-    }
+    let order = new Order(this.userId, this.shipping, this.cart);
+   
 
     this.orderService.storeOrder(order);
   }
