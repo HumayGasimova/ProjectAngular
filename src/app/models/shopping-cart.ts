@@ -24,7 +24,7 @@ export class ShoppingCart {
       // x.key = productId;
       // this.items.push(x);
     }
-    console.log("Hey",this.items)
+    // console.log("Hey",this.items)
   }
 
 //  get productIds() {
