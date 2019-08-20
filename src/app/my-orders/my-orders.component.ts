@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { OrderService } from '../services/order.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-my-orders',
@@ -9,11 +10,24 @@ import { OrderService } from '../services/order.service';
 })
 export class MyOrdersComponent implements OnInit {
   orders$;
+  userUid;
+  subscription = Subscription;
   constructor(
     private authService: AuthService,
     private orderService: OrderService
   ) { 
-    // this.orders$ = authService.user$.switchMap(u=> orderService.getOrdersByUser(u.uid))
+    authService.user$.subscribe(u => {
+      
+    this.userUid = u.uid;
+    
+    })
+    this.orders$ = authService.user$
+    .switchMap(u => {
+      return orderService.getOrdersByUser(u.uid).valueChanges();
+    });
+    
+    
+   
   }
 
   ngOnInit() {
