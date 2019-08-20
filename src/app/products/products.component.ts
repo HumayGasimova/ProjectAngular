@@ -15,7 +15,7 @@ import { ShoppingCart } from '../models/shopping-cart';
 })
 export class ProductsComponent implements OnInit {
   // products: Product[] = [];
-  products;
+  products = [];
   filteredProducts: Product[] = [];
   category: string;
   cart$: Observable<ShoppingCart>;
