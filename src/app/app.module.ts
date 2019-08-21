@@ -40,18 +40,12 @@ import { LoginComponent } from './login/login.component';
 
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCardComponent } from './shared/components/product-card/product-card.component';
-import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
-import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
-import { UserService } from './shared/services/user.service';
-import { CategoryService } from './shared/services/category.service';
-import { ProductService } from './shared/services/product.service';
-import { ShoppingCartService } from './shared/services/shopping-cart.service';
-import { OrderService } from './shared/services/order.service';
+import { SharedModule } from './shared/shared.module';
+
 
 
 
@@ -72,13 +66,12 @@ import { OrderService } from './shared/services/order.service';
     LoginComponent,
     ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent,
-    ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -146,14 +139,8 @@ import { OrderService } from './shared/services/order.service';
     ])
   ],
   providers: [
-    AuthService,
-    AuthGuard,
     AdminAuthGuard,
-    UserService,
-    CategoryService,
-    ProductService,
-    ShoppingCartService,
-    OrderService
+   
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: HttpConfigInterceptor,
