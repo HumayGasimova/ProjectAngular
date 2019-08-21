@@ -1,8 +1,8 @@
 
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
-import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
-import { UserService } from './services/user.service';
+import { AuthService } from './shared/services/auth.service';
+import { UserService } from './shared/services/user.service';
 
 
 @Component({

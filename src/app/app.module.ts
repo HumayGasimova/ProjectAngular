@@ -26,7 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular5-data-table';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
@@ -38,20 +38,20 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 
-import { AuthService } from './services/auth.service';
-import { AuthGuard } from './services/auth-guard.service';
-import { UserService } from './services/user.service';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { CategoryService } from './services/category.service';
-import { ProductService } from './services/product.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
-import { OrderService } from './services/order.service';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { UserService } from './shared/services/user.service';
+import { CategoryService } from './shared/services/category.service';
+import { ProductService } from './shared/services/product.service';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
+import { OrderService } from './shared/services/order.service';
 
 
 

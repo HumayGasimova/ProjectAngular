@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
 import { Subscription } from 'rxjs';
+import { OrderService } from 'app/shared/services/order.service';
 
 @Component({
   selector: 'app-admin-orders',

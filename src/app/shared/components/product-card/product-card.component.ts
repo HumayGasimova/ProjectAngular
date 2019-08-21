@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { ignoreElements } from 'rxjs/operators';
-import { ShoppingCartService } from '../services/shopping-cart.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { isNgTemplate } from '@angular/compiler';
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from '../../models/shopping-cart';
 
 
 @Component({

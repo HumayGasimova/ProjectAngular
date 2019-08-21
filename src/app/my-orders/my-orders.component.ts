@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { OrderService } from '../services/order.service';
 import { Subscription } from 'rxjs';
+import { OrderService } from 'app/shared/services/order.service';
+import { AuthService } from 'app/shared/services/auth.service';
 
 @Component({
   selector: 'app-my-orders',
