@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border: 2px solid rgb(68, 87, 68);
+    background: rgb(68, 87, 68);
+    border-radius: 5px;
+    .navbar-left{
+        display: flex;
+        width: 80%;
+    }
+    .navbar-right{
+        width: 12%;
+    }
+   
+}
+
+.navbar-link{
+    padding: 25px 3px 20px 30px;
+    font-size: 24px;
+   
+}
+.navbar-counter {
+    padding: 26px 3px 20px 10px;
+    font-size: 24px;
+}

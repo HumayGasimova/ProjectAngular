@@ -1,47 +1,33 @@
-import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { 
-  HttpClientModule, 
-  // HTTP_INTERCEPTORS 
-} from '@angular/common/http';
-
-import { DataService } from './services/data.service';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-
-import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
-
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { environment } from '../environments/environment';
-
-import { SharedModule } from './shared/shared.module';
-import { AdminModule } from './admin/admin.module';
-import { ShoppingModule } from './shopping/shopping.module';
-import { CoreModule } from './core/core.module';
-import { ProductsComponent } from './shopping/components/products/products.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    ShoppingCartComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    CoreModule,
-    AdminModule,
-    ShoppingModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -53,17 +39,20 @@ import { ProductsComponent } from './shopping/components/products/products.compo
     RouterModule.forRoot([
       {
         path: '',
-        component: ProductsComponent
+        component: HomeComponent
+      },
+      {
+        path: 'shopping-cart',
+        component: ShoppingCartComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ])
   ],
   providers: [
-   
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpConfigInterceptor,
-    //   multi:true
-    // }
+ 
   ],
   bootstrap: [AppComponent],
 })
