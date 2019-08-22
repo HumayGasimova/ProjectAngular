@@ -18,9 +18,16 @@
 .navbar-link{
     padding: 25px 3px 20px 30px;
     font-size: 24px;
+    a {
+        color: beige;
+        &:link{
+            text-decoration: none; 
+        }       
+    }
    
 }
 .navbar-counter {
     padding: 26px 3px 20px 10px;
     font-size: 24px;
+    color: beige;
 }
