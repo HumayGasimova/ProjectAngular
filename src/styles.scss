@@ -2,6 +2,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~font-awesome/css/font-awesome.css";
+
+// $primary-color: rgb(194, 35, 35);
+
 body {
     padding-top: 80px;
 }
@@ -19,3 +22,9 @@ a {
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;
 }
+
+
+
+// .navbar-dark .navbar-brand {
+//     color: $primary-color;
+// }
