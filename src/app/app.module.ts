@@ -22,40 +22,27 @@ import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CustomFormsModule } from 'ng2-validation';
-import { DataTableModule } from 'angular5-data-table';
 
 import { environment } from '../environments/environment';
-import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
-import { LoginComponent } from './login/login.component';
 
-import { AuthGuard } from './shared/services/auth-guard.service';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
-import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
-import { CheckOutComponent } from './shopping/components/check-out/check-out.component';
-import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
-import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { ShoppingModule } from './shopping/shopping.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BsNavbarComponent,
-    LoginComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
+    CoreModule,
     AdminModule,
     ShoppingModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
@@ -63,17 +50,10 @@ import { ShoppingModule } from './shopping/shopping.module';
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
-    NgbModule,
-    CustomFormsModule,
-    DataTableModule,
     RouterModule.forRoot([
       {
         path: '',
         component: ProductsComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
       }
     ])
   ],

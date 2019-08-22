@@ -19,10 +19,7 @@ import { AuthGuard } from 'app/shared/services/auth-guard.service';
     AdminOrdersComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     SharedModule,
-    DataTableModule,
     RouterModule.forChild([
       {
         path: 'admin/products/new',
