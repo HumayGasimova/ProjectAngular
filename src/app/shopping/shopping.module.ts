@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { ProductsComponent } from 'app/products/products.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
-import { ProductFilterComponent } from 'app/products/product-filter/product-filter.component';
+import { ProductFilterComponent } from 'app/shopping/components/products/product-filter/product-filter.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { SharedModule } from 'shared/shared.module';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [

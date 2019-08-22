@@ -24,12 +24,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
-import { ProductsComponent } from './products/products.component';
 
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { ShoppingModule } from './shopping/shopping.module';
 import { CoreModule } from './core/core.module';
+import { ProductsComponent } from './shopping/components/products/products.component';
 
 
 @NgModule({
