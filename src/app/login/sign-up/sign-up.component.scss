@@ -1,0 +1,44 @@
+.signUp-form-wrap {
+    width: 550px;
+    height: 500px;
+    position: relative;
+    top: 60px;
+    left: 30%;
+    border: 2px solid  rgb(68, 87, 68);
+    border-radius: 3px;
+
+    .signUp-label{
+        font-size: 40px;
+        position: relative;
+        top: 50px;
+        left: 37%;
+        color:  rgb(68, 87, 68);
+    }
+    .button-signup {
+        height: 30px;
+        width: 150px;
+        border: 1px solid rgb(68, 87, 68);
+        background-color: rgb(212, 218, 212);
+        &:hover {
+            color: red;
+        }
+    }
+    form{
+        padding: 75px 0 0 77px;
+        display: flex;
+        flex-direction: column;
+        label{
+            font-size: 20px;
+        }
+        input {
+            width: 400px;
+            height: 30px;
+            border: 1px solid rgb(68, 87, 68);
+        }
+        .signUp-form-buttons-wrap {
+            display: flex;
+            flex-direction: column;
+            padding-left: 26%;
+        }
+    }
+}

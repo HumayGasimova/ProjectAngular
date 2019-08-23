@@ -16,6 +16,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { SignInComponent } from './login/sign-in/sign-in.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     ShoppingCartComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MyOrdersComponent,
+    AdminOrdersComponent,
+    AdminProductsComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,20 @@ import { HomeComponent } from './home/home.component';
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'my-orders',
+        component: MyOrdersComponent
+      },
+      {
+        path: 'admin/orders',
+        component: AdminOrdersComponent
+      },
+      {
+        path: 'admin/products',
+        component: AdminProductsComponent
       }
+
     ])
   ],
   providers: [

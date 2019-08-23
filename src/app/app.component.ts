@@ -1,5 +1,6 @@
 
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { AppService } from './app.service';
 
 
 
@@ -11,6 +12,12 @@ import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 export class AppComponent {
  
 
-  constructor() {
+  constructor(
+    public appServices: AppService) {
   }
+
+  // toggleClose(){
+  //   this
+  // }
+  
 }

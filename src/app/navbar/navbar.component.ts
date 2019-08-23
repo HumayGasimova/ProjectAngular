@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'app/services/auth.service';
+import { AppUser } from 'app/models/appUser';
+import { IfStmt } from '@angular/compiler';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'navbar',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  appUser;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private appServices: AppService
+  ) { 
+ 
+  }
 
   ngOnInit() {
+    this.appUser = JSON.parse(localStorage.getItem('user'));
+    console.log(this.appUser)
   }
 
 }

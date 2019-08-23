@@ -1,0 +1,20 @@
+<div class="signUp-form-wrap">
+    <div class="signUp-label">Sign Up</div>
+    <form [formGroup]="form" >
+        <label>Name</label>
+        <input formControlName="name" required>
+        <div class="emptyDivHeight"></div>
+        <label>Email</label>
+        <input formControlName="email" required>
+        <div class="emptyDivHeight"></div>
+        <label>Password</label>
+        <input formControlName="password" required>
+        <div class="emptyDivHeight"></div>
+        <div class="signUp-form-buttons-wrap">
+            <button (click)="login()" class="button-signup">Sign Up</button>
+            <div class="emptyDivHeight"></div>
+            <button (click)="loginGoogle()" class="button-signup">Login with Google</button>
+        </div>
+        
+    </form>
+</div>

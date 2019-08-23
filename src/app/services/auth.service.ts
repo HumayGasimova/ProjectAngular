@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase from 'firebase';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { JsonPipe } from '@angular/common';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 
 @Injectable({
@@ -14,7 +16,9 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    public router: Router
+    public router: Router,
+    private db: AngularFireDatabase,
+    private http: HttpClient
   ) { 
     this.afAuth.authState.subscribe(user=>{
       if(user){
@@ -27,10 +31,15 @@ export class AuthService {
 
   }
 
-  async login(email: string, password: string){
-    var result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-    this.sendEmailVerification();
+  async login(data){
+    var result = await this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password);
+    this.http.post('https://projectangular-a927e.firebaseio.com/', data)
+
+    this.db.list('/users').push(data)
+    console.log(result)
+    // this.sendEmailVerification();
     // this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    this.router.navigate(['/'])
   }
 
   async sendEmailVerification(){
