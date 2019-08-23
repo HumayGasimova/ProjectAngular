@@ -3,6 +3,7 @@ import { AuthService } from 'app/services/auth.service';
 import { AppUser } from 'app/models/appUser';
 import { IfStmt } from '@angular/compiler';
 import { AppService } from 'app/app.service';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'navbar',
@@ -10,18 +11,25 @@ import { AppService } from 'app/app.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  appUser;
+  appUser: AppUser;
 
   constructor(
     private authService: AuthService,
-    private appServices: AppService
+    private appServices: AppService,
+    private userService: UserService
   ) { 
  
   }
 
   ngOnInit() {
-    this.appUser = JSON.parse(localStorage.getItem('user'));
-    console.log(this.appUser)
+    this.authService.appUser$.subscribe(appUser =>{
+      this.appUser = appUser
+      console.log(this.appUser)
+    })
+  }
+
+  logout(){
+    this.authService.logout();
   }
 
 }

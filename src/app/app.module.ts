@@ -22,6 +22,10 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 
+import { AppService } from './app.service';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +79,9 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
     ])
   ],
   providers: [
+    AppService,
+    UserService,
+    AuthService
  
   ],
   bootstrap: [AppComponent],

@@ -1,6 +1,8 @@
 
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { AppService } from './app.service';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -10,14 +12,16 @@ import { AppService } from './app.service';
  
 })
 export class AppComponent {
- 
 
   constructor(
-    public appServices: AppService) {
+    public appServices: AppService,
+    private authServices: AuthService,
+    private userServices: UserService
+  ) {
+    authServices.user$.subscribe(user => {
+      userServices.save(user);
+    })
   }
 
-  // toggleClose(){
-  //   this
-  // }
   
 }

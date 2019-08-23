@@ -24,11 +24,10 @@ export class SignUpComponent implements OnInit {
     })
   }
 
-  login(){
-   let data: Object = this.form.value;
-   console.log(data)
-    this.authService.login(data)
-  }
+  // login(){
+  //  let data: Object = this.form.value;
+  //   this.authService.login(data)
+  // }
 
   loginGoogle(){
     this.authService.loginWithGoogle();
