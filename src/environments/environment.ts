@@ -6,13 +6,13 @@ export const environment = {
   production: false,
   navBarBackgroundColor: 'blue',
   firebase : {
-    apiKey: "AIzaSyAm4M3_9ftVYIU-gAByMk-ZatXZd4xRIMQ",
-    authDomain: "onlineshop-6d84b.firebaseapp.com",
-    databaseURL: "https://onlineshop-6d84b.firebaseio.com",
-    projectId: "onlineshop-6d84b",
+    apiKey: "AIzaSyC-pBIYpUuFS3KKJ8KZwcwVYikRSY9p4bA",
+    authDomain: "projectangular-a927e.firebaseapp.com",
+    databaseURL: "https://projectangular-a927e.firebaseio.com",
+    projectId: "projectangular-a927e",
     storageBucket: "",
-    messagingSenderId: "281225109165",
-    appId: "1:281225109165:web:3659e7c04768391e"
+    messagingSenderId: "199313244721",
+    appId: "1:199313244721:web:fd62eabfc67b7422"
   }
 };
 

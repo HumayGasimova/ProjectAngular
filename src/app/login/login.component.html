@@ -2,15 +2,15 @@
     <div class="signUp-label">Sign Up</div>
     <form [formGroup]="form" >
         <label>Email</label>
-        <input formControlName="code">
+        <input formControlName="email" required>
         <div class="emptyDivHeight"></div>
         <label>Password</label>
-        <input formControlName="code">
+        <input formControlName="password" required>
         <div class="emptyDivHeight"></div>
         <div class="signUp-form-buttons-wrap">
-            <button class="button-signup">Sign Up</button>
+            <button (click)="login()" class="button-signup">Sign Up</button>
             <div class="emptyDivHeight"></div>
-            <button class="button-signup">Login with Google</button>
+            <button (click)="loginGoogle()" class="button-signup">Login with Google</button>
         </div>
        
     </form>
