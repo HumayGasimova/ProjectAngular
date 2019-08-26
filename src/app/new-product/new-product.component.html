@@ -1,1 +1,45 @@
-<p>new-product works!</p>
+<div class="new-product">
+    <div class="col ">
+        <form [formGroup]="form" class="new-product-form-wrapper">
+            <label>Title</label>
+            <input formControlName="title" required>
+
+            <div class="emptyDivHeight"></div>
+
+            <label>Price</label>
+            <div class="price-wrapper">
+                <div class="icon">$</div>
+                <input formControlName="price" required>
+            </div>
+            
+
+            <div class="emptyDivHeight"></div>
+
+            <label>Category</label>
+            <select formControlName="category">
+                <option value="">rgg</option>
+                <option value="">rgg</option>
+                <option value="">rgg</option>
+                <!-- <option *ngFor="let c of categories$ | async" [value]="c.key">
+                    {{c.name}}
+                </option> -->
+            </select>
+
+            <div class="emptyDivHeight"></div>
+
+            <label>ImageUrl</label>
+            <input formControlName="imageUrl" required>
+
+            <div class="emptyDivHeight"></div>
+
+            <div class="signUp-form-buttons-wrapper">
+                <button (click)="add()" class="button-add">Add</button>
+
+                <div class="emptyDivHeight"></div>
+                
+                <button (click)="delete()" class="button-delete">Delete</button>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
