@@ -42,7 +42,7 @@ export class NewProductComponent implements OnInit,OnDestroy {
       category: ['', Validators.required],
       imageUrl: ['', [
         Validators.required,
-        CustomValidators.shouldBeUrl,
+        Validators.pattern(/^(http|https):/) 
       ]
     ]
     })
@@ -58,15 +58,15 @@ export class NewProductComponent implements OnInit,OnDestroy {
     if(this.form.valid){ 
      
       let product = this.form.value;
-      this.productsServices.addProduct(product)
+      this.subscriptionProduct = this.productsServices.addProduct(product)
       .subscribe(x=>x);
       // console.log(product)
     }
   }
 
   ngOnDestroy(){
-    this.subscriptionCategories.unsubscribe();
-    this.subscriptionProduct.unsubscribe();
+    // this.subscriptionCategories.unsubscribe();
+    // this.subscriptionProduct.unsubscribe();
   }
 
 }

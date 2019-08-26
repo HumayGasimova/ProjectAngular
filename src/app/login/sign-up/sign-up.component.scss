@@ -1,8 +1,8 @@
 .signUp-form-wrapper {
     width: 550px;
-    height: 500px;
+    height: 600px;
     position: relative;
-    top: 60px;
+    top: 30px;
     left: 30%;
     border: 2px solid  rgb(68, 87, 68);
     border-radius: 3px;
@@ -23,6 +23,7 @@
             color: red;
         }
     }
+
     form{
         padding: 75px 0 0 77px;
         display: flex;
@@ -38,7 +39,31 @@
         .signUp-form-buttons-wrapper {
             display: flex;
             flex-direction: column;
-            padding-left: 26%;
+            padding-left: 23%;
+            button{
+                width: 200px;
+                height: 30px;
+                border: 0.5px solid rgb(68, 87, 68);
+                border-radius: 3px;
+                box-shadow: 1px 1px 2px 0px rgb(194, 194, 179);
+                color: beige;
+            }
+            .button-signup{
+                background-color: rgb(116, 136, 116);
+                &:hover{
+                    background-color: rgb(70, 187, 138);
+                }
+            }
+        
         }
+    }
+    .error-field {
+        width: 84%;
+        height: 30px;
+        background-color: rgb(231, 207, 207);
+        border-radius: 3px;
+        // margin-left: 10px;
+        padding-left: 5px;
+        padding-top: 5px;
     }
 }

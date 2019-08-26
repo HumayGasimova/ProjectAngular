@@ -4,16 +4,27 @@
 
         <label>Name</label>
         <input formControlName="name" required>
+        <div class="error-field" *ngIf="form.get('name').touched && form.get('name').invalid">
+            <div *ngIf="form.controls.name.errors?.required">Name is required!</div>
+        </div>
 
         <div class="emptyDivHeight"></div>
 
         <label>Email</label>
         <input formControlName="email" required>
+        <div class="error-field" *ngIf="form.get('email').touched && form.get('email').invalid">
+            <div *ngIf="form.controls.email.errors?.required">Email is required!</div>
+            <div *ngIf="form.controls.email.errors?.pattern">Please enter a valid email address</div>
+        </div>
 
         <div class="emptyDivHeight"></div>
 
         <label>Password</label>
         <input formControlName="password" required>
+        <div class="error-field" *ngIf="form.get('password').touched && form.get('password').invalid">
+            <div *ngIf="form.controls.password.errors?.required">ImageUrl is required!</div>
+            <!-- <div *ngIf="form.controls.password.errors?.pattern">Should be url!</div> -->
+        </div>
 
         <div class="emptyDivHeight"></div>
 

@@ -36,7 +36,7 @@
             <input formControlName="imageUrl"  type="text">
             <div class="error-field" *ngIf="form.get('imageUrl').touched && form.get('imageUrl').invalid">
                 <div *ngIf="form.controls.imageUrl.errors?.required">ImageUrl is required!</div>
-                <div *ngIf="form.controls.imageUrl.errors?.shouldBeUrl">Should be url!</div>
+                <div *ngIf="form.controls.imageUrl.errors?.pattern">Should be url!</div>
             </div>
            
 
