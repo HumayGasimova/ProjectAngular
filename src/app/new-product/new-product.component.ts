@@ -60,6 +60,7 @@ export class NewProductComponent implements OnInit,OnDestroy {
       let product = this.form.value;
       this.subscriptionProduct = this.productsServices.addProduct(product)
       .subscribe(x=>x);
+      this.form.reset()
       // console.log(product)
     }
   }
