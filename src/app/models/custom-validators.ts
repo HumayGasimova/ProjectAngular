@@ -7,4 +7,11 @@ export class CustomValidators {
         }
         return null;
     }
+
+    // static shouldBeNumber(control: AbstractControl): ValidationErrors | null{
+    //     if(!control.value){
+    //         return {shouldBeNumber: true}
+    //     }
+    //     return null;
+    // }
 }

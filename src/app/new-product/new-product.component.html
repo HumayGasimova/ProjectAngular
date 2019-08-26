@@ -11,10 +11,11 @@
             <label>Price</label>
             <div class="price-wrapper">
                 <div class="icon">$</div>
-                <input formControlName="price"  type="number" >
+                <input formControlName="price">
             </div>
             <div class="error-field" *ngIf="form.get('price').touched && form.get('price').invalid">
                 <div *ngIf="form.controls.price.errors?.required">Price is required!</div> 
+                <div *ngIf="form.controls.price.errors?.pattern">Add numbers</div> 
             </div>
             
             <div class="emptyDivHeight"></div>
@@ -35,7 +36,7 @@
             <input formControlName="imageUrl"  type="text">
             <div class="error-field" *ngIf="form.get('imageUrl').touched && form.get('imageUrl').invalid">
                 <div *ngIf="form.controls.imageUrl.errors?.required">ImageUrl is required!</div>
-                <div *ngIf="form.get('imageUrl').errors.shouldBeUrl">Should be url!</div>
+                <div *ngIf="form.controls.imageUrl.errors?.shouldBeUrl">Should be url!</div>
             </div>
            
 

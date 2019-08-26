@@ -35,11 +35,14 @@ export class NewProductComponent implements OnInit,OnDestroy {
   ngOnInit() {
     this.form = this.fb.group({
       title: ['', Validators.required],
-      price: ['', Validators.required],
+      price: ['', [
+        Validators.required,
+        Validators.pattern(/[0-9]/) 
+      ]],
       category: ['', Validators.required],
       imageUrl: ['', [
         Validators.required,
-        CustomValidators.shouldBeUrl
+        CustomValidators.shouldBeUrl,
       ]
     ]
     })
