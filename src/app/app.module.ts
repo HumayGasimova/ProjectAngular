@@ -26,6 +26,8 @@ import { AppService } from './app.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { NewProductComponent } from './new-product/new-product.component';
+import { CategoryService } from './services/category.service';
+import { ProductsService } from './services/products.service';
 
 
 @NgModule({
@@ -87,8 +89,9 @@ import { NewProductComponent } from './new-product/new-product.component';
   providers: [
     AppService,
     UserService,
-    AuthService
- 
+    AuthService,
+    CategoryService,
+    ProductsService
   ],
   bootstrap: [AppComponent],
 })
