@@ -25,6 +25,7 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { AppService } from './app.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { NewProductComponent } from './new-product/new-product.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AuthService } from './services/auth.service';
     AdminOrdersComponent,
     AdminProductsComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,10 @@ import { AuthService } from './services/auth.service';
       {
         path: 'admin/products',
         component: AdminProductsComponent
+      },
+      {
+        path: 'admin/products/new-product',
+        component: NewProductComponent
       }
 
     ])

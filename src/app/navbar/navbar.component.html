@@ -18,15 +18,15 @@
                     <a routerLink="/login">Login</a>
             </ng-template>
             <div *ngIf="appUser; else anonymousUser">
-                <div class="user-name"(click)="appServices.toggleCollapsed()">
+                <div class="user-name" (click)="appServices.toggleCollapsed()">
                     {{appUser.name}}
                 </div>
                 <ng-container *ngIf="appServices.isOpen">
                     <div class="navbar-dropdown">
-                            <a routerLink="/my-orders">My Orders</a>
+                            <a (click)="appServices.toggleClose()" routerLink="/my-orders">My Orders</a>
                             <ng-container *ngIf="appUser.isAdmin">
-                                <a  routerLink="/admin/orders">Manage Orders</a>
-                                <a  routerLink="/admin/products">Manage Products</a>
+                                <a (click)="appServices.toggleClose()" routerLink="/admin/orders">Manage Orders</a>
+                                <a (click)="appServices.toggleClose()" routerLink="/admin/products">Manage Products</a>
                             </ng-container>
                             <a (click)="logout()">Log Out</a>
                     </div>

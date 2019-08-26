@@ -19,7 +19,10 @@ export class AppComponent {
     private userServices: UserService
   ) {
     authServices.user$.subscribe(user => {
+     if(user){
       userServices.save(user);
+     }
+     
     })
   }
 

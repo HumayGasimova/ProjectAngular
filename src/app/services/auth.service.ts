@@ -27,7 +27,6 @@ export class AuthService {
   }
 
   loginWithGoogle(){
-
    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
    this.router.navigate(['/']);
   }
@@ -38,6 +37,7 @@ export class AuthService {
 
   get appUser$(): Observable<AppUser>{
     return this.user$.switchMap(user => {
+      console.log(user)
       if(user) return this.userServices.get(user.uid).valueChanges();
       return Observable.of(null);
     })
