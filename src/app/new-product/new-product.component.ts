@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'app/services/category.service';
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'app/services/products.service';
+import { CustomValidators } from 'app/models/custom-validators';
 
 @Component({
   selector: 'app-new-product',
@@ -33,10 +34,14 @@ export class NewProductComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      title: [null, Validators.required],
-      price: [null, Validators.required],
-      category: [null, Validators.required],
-      imageUrl: [null, Validators.required]
+      title: ['', Validators.required],
+      price: ['', Validators.required],
+      category: ['', Validators.required],
+      imageUrl: ['', [
+        Validators.required,
+        CustomValidators.shouldBeUrl
+      ]
+    ]
     })
    
   }
@@ -44,6 +49,7 @@ export class NewProductComponent implements OnInit,OnDestroy {
   add(){
     if(!this.form.valid){
       this.form.markAllAsTouched(); 
+      // console.log(this.form.controls.surname)
       return false;
     }
     if(this.form.valid){ 

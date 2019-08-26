@@ -2,17 +2,21 @@
     <div class="col ">
         <form [formGroup]="form" class="new-product-form-wrapper">
             <label>Title</label>
-            <input formControlName="title" required>
-
+            <input formControlName="title"  type="text">
+            <div class="error-field" *ngIf="form.get('title').touched && form.get('title').invalid">
+                <div *ngIf="form.controls.title.errors?.required">Title is required!</div> 
+            </div>
             <div class="emptyDivHeight"></div>
 
             <label>Price</label>
             <div class="price-wrapper">
                 <div class="icon">$</div>
-                <input formControlName="price" required>
+                <input formControlName="price"  type="number" >
+            </div>
+            <div class="error-field" *ngIf="form.get('price').touched && form.get('price').invalid">
+                <div *ngIf="form.controls.price.errors?.required">Price is required!</div> 
             </div>
             
-
             <div class="emptyDivHeight"></div>
 
             <label>Category</label>
@@ -21,11 +25,19 @@
                     {{c.data.name}}
                 </option>
             </select>
+            <div class="error-field" *ngIf="form.get('category').touched && form.get('category').invalid">
+                <div *ngIf="form.controls.category.errors?.required">Choose a category!</div> 
+            </div>
 
             <div class="emptyDivHeight"></div>
 
             <label>ImageUrl</label>
-            <input formControlName="imageUrl" required>
+            <input formControlName="imageUrl"  type="text">
+            <div class="error-field" *ngIf="form.get('imageUrl').touched && form.get('imageUrl').invalid">
+                <div *ngIf="form.controls.imageUrl.errors?.required">ImageUrl is required!</div>
+                <div *ngIf="form.get('imageUrl').errors.shouldBeUrl">Should be url!</div>
+            </div>
+           
 
             <div class="emptyDivHeight"></div>
 
