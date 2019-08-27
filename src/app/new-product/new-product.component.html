@@ -5,6 +5,7 @@
             <input formControlName="title"  type="text">
             <div class="error-field" *ngIf="form.get('title').touched && form.get('title').invalid">
                 <div *ngIf="form.controls.title.errors?.required">Title is required!</div> 
+                <div *ngIf="form.controls.title.errors?.titleExists">Title has already existed!</div> 
             </div>
             <div class="emptyDivHeight"></div>
 
@@ -22,7 +23,7 @@
 
             <label>Category</label>
             <select formControlName="category">
-                <option *ngFor="let c of categories" [value]="c.key">
+                <option *ngFor="let c of categories" [value]="c.category">
                     {{c.data.name}}
                 </option>
             </select>
@@ -51,5 +52,8 @@
             </div>
         </form>
     </div>
-    <div class="col"></div>
+    <div class="col">
+        <product-card [product]="form.controls"></product-card>
+
+    </div>
 </div>

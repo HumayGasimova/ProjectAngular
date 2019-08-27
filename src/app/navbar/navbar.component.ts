@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
    
     this.authService.appUser$.subscribe(appUser =>{
       this.appUser = appUser
-      console.log("uhjio",this.appUser)
+      // console.log("uhjio",this.appUser)
     })
   }
 

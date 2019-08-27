@@ -1,0 +1,6 @@
+
+    <div  *ngIf="product.title.value" class="product-card">
+        <img [src]="product.imageUrl.value">
+        <div *ngIf="product.title.value" class="product-card-text">{{product.title.value}}</div>
+        <div *ngIf="product.price.value" class="product-card-text">$ {{product.price.value}}</div>
+    </div>

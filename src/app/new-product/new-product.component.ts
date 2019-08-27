@@ -15,12 +15,14 @@ export class NewProductComponent implements OnInit,OnDestroy {
   categories=[];
   subscriptionCategories: Subscription;
   subscriptionProduct: Subscription;
+  products=[];
 
   constructor(
     public fb: FormBuilder,
     private categoryService: CategoryService,
     private productsServices: ProductsService
   ) {
+    
     this.subscriptionCategories = categoryService.getAllCategories()
       .subscribe(x=>{
         for(let key in x){
@@ -34,7 +36,10 @@ export class NewProductComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      title: ['', Validators.required],
+      title: ['', [
+        Validators.required,
+      ]
+    ],
       price: ['', [
         Validators.required,
         Validators.pattern(/[0-9]/) 
@@ -58,10 +63,11 @@ export class NewProductComponent implements OnInit,OnDestroy {
     if(this.form.valid){ 
      
       let product = this.form.value;
+      console.log(this.form.value)
       this.subscriptionProduct = this.productsServices.addProduct(product)
       .subscribe(x=>x);
-      this.form.reset()
-      // console.log(product)
+      this.form.reset();
+     
     }
   }
 

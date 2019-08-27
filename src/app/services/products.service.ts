@@ -13,4 +13,8 @@ export class ProductsService {
   addProduct(product) {
     return this.http.post('https://projectangular-a927e.firebaseio.com/products.json', product);
   }
+
+  getAllProducts() {
+    return this.http.get('https://projectangular-a927e.firebaseio.com/products.json');
+  }
 }

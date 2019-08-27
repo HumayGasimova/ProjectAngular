@@ -28,6 +28,8 @@ import { AuthService } from './services/auth.service';
 import { NewProductComponent } from './new-product/new-product.component';
 import { CategoryService } from './services/category.service';
 import { ProductsService } from './services/products.service';
+import { CustomValidators } from './models/custom-validators';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { ProductsService } from './services/products.service';
     AdminProductsComponent,
     SignUpComponent,
     SignInComponent,
-    NewProductComponent
+    NewProductComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import { ProductsService } from './services/products.service';
     UserService,
     AuthService,
     CategoryService,
-    ProductsService
+    ProductsService,
+    CustomValidators
   ],
   bootstrap: [AppComponent],
 })
