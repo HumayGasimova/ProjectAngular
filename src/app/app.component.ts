@@ -11,7 +11,7 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
  
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(
     public appServices: AppService,
@@ -24,6 +24,10 @@ export class AppComponent {
      }
      
     })
+  }
+
+  ngOnInit() {
+    
   }
 
   

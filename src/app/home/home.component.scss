@@ -1,5 +1,5 @@
 .home {
-    padding-top: 30px;
+    padding-top: 20px;
     margin-right: 120px;
     align-items: center;
     justify-content: space-evenly;
@@ -8,7 +8,13 @@
 }
 .col-1 {
     width: 30%;
-    height: 500px;
+    height: 500px;    
+    margin-top: 42px;
+    width: 350px;
+    border: 1px solid rgb(68, 87, 68);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 50px;
 }
 
 .col-2 {
@@ -22,16 +28,40 @@
     justify-content: space-around;
 }
 
+.row-1 {
+    font-size: 37px;
+    font-weight: 200;
+    color: beige;
+    text-align: center;
+    border-bottom: 1px solid rgb(68, 87, 68);
+    padding: 20px;
+    background-color: rgb(68, 87, 68);
+}
+
+.row-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.row-3 {
+    border-top: 1px solid rgb(68, 87, 68);
+    font-size: 33px;
+    padding-left: 20px;
+    padding-top: 23px;
+    padding-bottom: 20px;
+}
+
 
 .home-product-card {
     width: 350px;
+    border: 1px solid rgb(68, 87, 68);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgb(68, 87, 68);
-    padding-top: 25px;
-    margin-top: 47px;
+    padding-top: 15px;
+    margin-top: 20px;
     img{
         max-width:90%;
         height:auto;

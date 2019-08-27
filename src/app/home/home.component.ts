@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'app/services/products.service';
+import { CategoryService } from 'app/services/category.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,10 @@ import { ProductsService } from 'app/services/products.service';
 })
 export class HomeComponent implements OnInit {
   products=[];
+  categories=[];
   constructor(
-    private productService: ProductsService
+    private productService: ProductsService,
+    private categoryService: CategoryService
   ) { 
     productService.getAllProducts()
     .subscribe(products => {
@@ -20,6 +23,16 @@ export class HomeComponent implements OnInit {
         })
       }
     });
+
+    categoryService.getAllCategories()
+      .subscribe(x=>{
+        for(let key in x){
+          this.categories.push({
+            category: key,
+            data: x[key]
+          })
+        }
+      });
   }
 
   ngOnInit() {
