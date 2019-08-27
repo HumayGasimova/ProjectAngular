@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'app/services/products.service';
 import { CategoryService } from 'app/services/category.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,19 +11,15 @@ import { CategoryService } from 'app/services/category.service';
 export class HomeComponent implements OnInit {
   products=[];
   categories=[];
+  category;
+  filteredProducts;
+
   constructor(
     private productService: ProductsService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private route: ActivatedRoute
   ) { 
-    productService.getAllProducts()
-    .subscribe(products => {
-      for(let key in products){
-        this.products.push({
-          id: key,
-          data: products[key]
-        })
-      }
-    });
+    
 
     categoryService.getAllCategories()
       .subscribe(x=>{
@@ -36,7 +33,31 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.products)
+    this.populateProducts();
+  }
+
+  private populateProducts() {
+    this.productService.getAllProducts()
+    .switchMap(products => {
+      for(let key in products){
+        this.products.push({
+          id: key,
+          data: products[key]
+        })
+      }
+      return this.route.queryParams
+    })
+    .subscribe(params => {
+      this.category = params.category
+      this.applyFilter();
+    });
+  }
+
+  private applyFilter() {
+    this.filteredProducts = (this.category) ? 
+    this.products.filter(p => p.data.category === this.category) : 
+    this.products
+    console.log(this.filteredProducts)
   }
 
 }
