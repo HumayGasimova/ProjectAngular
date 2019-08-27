@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="home">
+    <div class="col-1"> </div>
+    <div class="col-2"> 
+        <div class="row">
+            <div *ngFor="let p of products" class="home-product-card">
+                <img [src]="p.data.imageUrl">
+                <div class="home-product-card-text">{{p.data.title}}</div>
+                <div class="home-product-card-text">$ {{p.data.price}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+    
