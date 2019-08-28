@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'app/services/products.service';
 import { CategoryService } from 'app/services/category.service';
 import { ActivatedRoute } from '@angular/router';
+import { ShoppingCartService } from 'app/services/shopping-cart.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private categoryService: CategoryService,
+    private shoppingCartServices: ShoppingCartService,
     private route: ActivatedRoute
   ) { 
     
@@ -60,4 +63,8 @@ export class HomeComponent implements OnInit {
     console.log(this.filteredProducts)
   }
 
+  addToCart(product) {
+    this.shoppingCartServices.addToCart(product);
+  }
+  
 }

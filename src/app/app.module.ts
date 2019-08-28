@@ -30,6 +30,7 @@ import { CategoryService } from './services/category.service';
 import { ProductsService } from './services/products.service';
 import { CustomValidators } from './models/custom-validators';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     AuthService,
     CategoryService,
     ProductsService,
-    CustomValidators
+    CustomValidators,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent],
 })

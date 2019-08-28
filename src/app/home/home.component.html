@@ -20,8 +20,20 @@
                 <img [src]="p.data.imageUrl">
                 <div class="home-product-card-text">{{p.data.title}}</div>
                 <div class="home-product-card-text">$ {{p.data.price}}</div>
+                <button 
+                    (click)="addToCart(p)"
+                    class="home-button-addToCart"
+                >
+                    Add to Cart
+                </button>
+                <ng-template #updateQuantity>
+                    <!-- <product-quantity [product]="product" [shopping-cart]="shoppingCart"></product-quantity> -->
+                </ng-template>
             </div>
         </div>
+     
+            
+        
     </div>
 </div>
     
