@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   categories=[];
   category;
   filteredProducts;
-
+  cart$ ;
   constructor(
     private productService: ProductsService,
     private categoryService: CategoryService,
@@ -35,7 +35,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.cart$ = (await this.shoppingCartServices.getCart());
     this.populateProducts();
   }
 
@@ -60,11 +61,10 @@ export class HomeComponent implements OnInit {
     this.filteredProducts = (this.category) ? 
     this.products.filter(p => p.data.category === this.category) : 
     this.products
-    console.log(this.filteredProducts)
   }
 
   addToCart(product) {
-    this.shoppingCartServices.addToCart(product);
+    this.shoppingCartServices.addToCart(product)
   }
   
 }
