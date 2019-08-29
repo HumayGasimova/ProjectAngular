@@ -5,40 +5,47 @@
     justify-content: space-evenly;
     display: flex;
     .col-1 {
-        width: 30%;
-        height: 500px;    
-        margin-top: 42px;
-        width: 350px;
-        border: 1px solid rgb(68, 87, 68);
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        margin-left: 50px;
         display: flex;
         flex-direction: column;
-        .row-1 {
-            text-decoration: none;
-            font-size: 37px;
-            font-weight: 200;
-            color: beige;
-            text-align: center;
-            border-bottom: 1px solid rgb(68, 87, 68);
-            padding: 20px;
-            background-color: rgb(68, 87, 68);
-        }
-        .row-2 {
+        width: 30%;
+        .home-filter{
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            .row-3 {
-                border-top: 1px solid rgb(68, 87, 68);
-                font-size: 33px;
-                padding-left: 20px;
-                padding-top: 23px;
-                padding-bottom: 20px;
+            position: fixed;
+            top: 130px;
+            height: 500px;
+            width: 350px;
+            border: 1px solid rgb(68, 87, 68);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-left: 50px;
+            background-color: white;
+            .row-1 {
                 text-decoration: none;
-                color: rgb(68, 87, 68);
+                font-size: 37px;
+                font-weight: 200;
+                color: beige;
+                text-align: center;
+                border-bottom: 1px solid rgb(68, 87, 68);
+                padding: 20px;
+                background-color: rgb(68, 87, 68);
+            }
+            .row-2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .row-3 {
+                    border-top: 1px solid rgb(68, 87, 68);
+                    font-size: 33px;
+                    padding-left: 20px;
+                    padding-top: 23px;
+                    padding-bottom: 20px;
+                    text-decoration: none;
+                    color: rgb(68, 87, 68);
+                }
             }
         }
+       
     }
     .col-2 {
         width: 80%;
@@ -58,6 +65,7 @@
                 padding-top: 15px;
                 margin-top: 20px;
                 justify-content: space-between;
+                background-color: white;
                 img{
                     max-width:90%;
                     height:auto;
@@ -75,9 +83,10 @@
                     border-top: 1px solid rgb(68, 87, 68);
                     border-right: 1px solid rgb(68, 87, 68);
                     border-left: 1px solid rgb(68, 87, 68);
-                    border-bottom: 0.5px solid rgb(68, 87, 68);
+                    margin-bottom: 0.5px;
                     border-bottom-left-radius: 5px;
                     border-bottom-right-radius: 5px;
+                    background-color: beige;
                     .home-button-updateQuantity-text{
                         padding-top: 10px;
                     }

@@ -1,18 +1,21 @@
 <div class="home">
     <div class="col-1"> 
-        <a 
-            class="row-1" 
-            routerLink="/"
-            [class.active] ="!category"
-            >All categories</a>
-        <div class="row-2">
+        <div class="home-filter">
             <a 
-                *ngFor="let c of categories" 
-                class="row-3"
+                class="row-1" 
                 routerLink="/"
-                [queryParams]="{category: c.category}"
-                >{{c.category}} </a>
+                [class.active] ="!category"
+                >All categories</a>
+            <div class="row-2">
+                <a 
+                    *ngFor="let c of categories" 
+                    class="row-3"
+                    routerLink="/"
+                    [queryParams]="{category: c.category}"
+                    >{{c.category}} </a>
+            </div>
         </div>
+       
     </div>
     <div class="col-2"> 
         <div class="row">
