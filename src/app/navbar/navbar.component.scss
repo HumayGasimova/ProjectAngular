@@ -1,3 +1,12 @@
+.fake{
+width: 98%;
+height: 70px;
+position: fixed;
+top:-10px;
+background-color: beige;
+z-index: 300px;
+
+}
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -6,6 +15,9 @@
     background: rgb(68, 87, 68);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    width: 98%;
+    position: fixed;
+    z-index: 500;
     .navbar-left{
         display: flex;
         width: 80%;
