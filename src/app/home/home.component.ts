@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'app/services/products.service';
 import { CategoryService } from 'app/services/category.service';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from 'app/services/shopping-cart.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ShoppingCart } from 'app/models/shopping-cart';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomeComponent implements OnInit {
   category;
   filteredProducts;
   cart$ ;
+
   constructor(
     private productService: ProductsService,
     private categoryService: CategoryService,
@@ -65,6 +68,10 @@ export class HomeComponent implements OnInit {
 
   addToCart(product) {
     this.shoppingCartServices.addToCart(product)
+  }
+
+  removeFromCart(product) {
+    this.shoppingCartServices.removeFromCart(product);
   }
   
 }
