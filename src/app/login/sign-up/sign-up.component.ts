@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import emailMask from 'text-mask-addons/dist/emailMask'
 import { AuthService } from 'app/services/auth.service';
+
 
 @Component({
   selector: 'sign-up',
@@ -9,7 +11,7 @@ import { AuthService } from 'app/services/auth.service';
 })
 export class SignUpComponent implements OnInit {
   public form: FormGroup;
-
+  public mask = emailMask
   constructor(
     public fb: FormBuilder,
     private authService: AuthService
@@ -35,5 +37,15 @@ export class SignUpComponent implements OnInit {
   loginGoogle(){
     this.authService.loginWithGoogle();
   }
+
+  // mask(rawValue) {
+  //  console.log(rawValue)
+  //  let string1 = /^[a-zA-Z0-9_.-]*$/
+  //  let string2 = /^[a-zA-Z0-9_.-]*$/
+  //  let string3 = /^[a-zA-Z0-9_.-]*$/
+  //   let mask = [string1, '@', string2, '.', string3]
+  // //  let mask = [/[1-9]/, '@', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+  //   return mask
+  // }
 
 }

@@ -11,7 +11,7 @@
         <div class="emptyDivHeight"></div>
 
         <label>Email</label>
-        <input formControlName="email" required>
+        <input formControlName="email" [textMask]="{mask: mask}" required>
         <div class="error-field" *ngIf="form.get('email').touched && form.get('email').invalid">
             <div *ngIf="form.controls.email.errors?.required">Email is required!</div>
             <div *ngIf="form.controls.email.errors?.pattern">Please enter a valid email address</div>

@@ -2,10 +2,11 @@
     width: 550px;
     height: 600px;
     position: relative;
-    top: 30px;
+    top: 100px;
     left: 30%;
     border: 2px solid  rgb(68, 87, 68);
     border-radius: 3px;
+    background-color: white;
 
     .signUp-label{
         font-size: 40px;
@@ -35,6 +36,7 @@
             width: 400px;
             height: 30px;
             border: 1px solid rgb(68, 87, 68);
+            background-color: beige;
         }
         .signUp-form-buttons-wrapper {
             display: flex;

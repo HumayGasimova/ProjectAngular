@@ -31,6 +31,7 @@ import { ProductsService } from './services/products.service';
 import { CustomValidators } from './models/custom-validators';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { TextMaskModule } from 'angular2-text-mask';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
+    TextMaskModule,
     RouterModule.forRoot([
       {
         path: '',
