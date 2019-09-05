@@ -11,7 +11,9 @@ import { AuthService } from 'app/services/auth.service';
 })
 export class SignUpComponent implements OnInit {
   public form: FormGroup;
-  public mask = emailMask
+  // public mask = emailMask;
+  // public mask = [ /[0-9]/, /[0-9]/, /[A-Z]+/, /[A-Z]+/, /[0-9]/, /[0-9]/, /[0-9]/] // car number
+  // public mask = ['(', '050', ')',' ', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/]
   constructor(
     public fb: FormBuilder,
     private authService: AuthService
@@ -38,14 +40,15 @@ export class SignUpComponent implements OnInit {
     this.authService.loginWithGoogle();
   }
 
-  // mask(rawValue) {
-  //  console.log(rawValue)
-  //  let string1 = /^[a-zA-Z0-9_.-]*$/
-  //  let string2 = /^[a-zA-Z0-9_.-]*$/
-  //  let string3 = /^[a-zA-Z0-9_.-]*$/
-  //   let mask = [string1, '@', string2, '.', string3]
-  // //  let mask = [/[1-9]/, '@', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-  //   return mask
-  // }
+  mask(rawValue) {
+   console.log(rawValue)
+   let mask = [];
+mask.push(raw)
+   let string1 = /^[a-zA-Z0-9_.-]*$/
+   let string2 = /^[a-zA-Z0-9_.-]*$/
+   let string3 = /^[a-zA-Z0-9_.-]*$/
+  //  let mask = [/[1-9]/, '@', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+    return mask
+  }
 
 }
